@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import TextInput from "../components/TextInput"; // Import the custom TextInput component
+import TextInput from "../components/TextInput"; 
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -27,7 +27,7 @@ const RegisterScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
 
-      {/* Name Input */}
+   
       <TextInput
         title="Name"
         placeholder="Enter your name"
@@ -36,7 +36,7 @@ const RegisterScreen = () => {
         customStyle={styles.input}
       />
 
-      {/* Email Input */}
+
       <TextInput
         title="Email"
         placeholder="Enter your email"
@@ -46,18 +46,18 @@ const RegisterScreen = () => {
         customStyle={styles.input}
       />
 
-      {/* Password Input */}
+
       <TextInput
         title="Password"
         placeholder="Enter your password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        type="password" // Enable password toggle
+        type="password" 
         customStyle={styles.input}
       />
 
-      {/* Phone Input */}
+  
       <TextInput
         title="Phone"
         placeholder="Enter your phone number"
@@ -67,12 +67,12 @@ const RegisterScreen = () => {
         customStyle={styles.input}
       />
 
-      {/* Register Button */}
+   
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
 
-      {/* Login Link */}
+   
       <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text style={styles.link}>Already have an account? Login</Text>
       </TouchableOpacity>
