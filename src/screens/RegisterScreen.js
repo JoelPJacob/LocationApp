@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import TextInput from "../components/TextInput"; // Import the custom TextInput component
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -25,36 +26,53 @@ const RegisterScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Register</Text>
+
+      {/* Name Input */}
       <TextInput
-        style={styles.input}
-        placeholder="Name"
+        title="Name"
+        placeholder="Enter your name"
         value={name}
         onChangeText={setName}
+        customStyle={styles.input}
       />
+
+      {/* Email Input */}
       <TextInput
-        style={styles.input}
-        placeholder="Email"
+        title="Email"
+        placeholder="Enter your email"
         value={email}
         onChangeText={setEmail}
         keyboardType="email-address"
+        customStyle={styles.input}
       />
+
+      {/* Password Input */}
       <TextInput
-        style={styles.input}
-        placeholder="Password"
+        title="Password"
+        placeholder="Enter your password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
+        type="password" // Enable password toggle
+        customStyle={styles.input}
       />
+
+      {/* Phone Input */}
       <TextInput
-        style={styles.input}
-        placeholder="Phone"
+        title="Phone"
+        placeholder="Enter your phone number"
         value={phone}
         onChangeText={setPhone}
         keyboardType="phone-pad"
+        customStyle={styles.input}
       />
+
+      {/* Register Button */}
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
+
+      {/* Login Link */}
       <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text style={styles.link}>Already have an account? Login</Text>
       </TouchableOpacity>
@@ -76,12 +94,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    height: 40,
+    height: 56,
     borderColor: "#CCC",
-    borderWidth: 1,
-    borderRadius: 8,
+    borderWidth: 0.6,
+    borderRadius: 10,
     marginBottom: 16,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     backgroundColor: "#FFF",
   },
   button: {
